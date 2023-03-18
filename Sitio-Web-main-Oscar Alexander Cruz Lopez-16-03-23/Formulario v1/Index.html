@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Memento Mori</title>
+  <link rel="icon" type="image/x-icon" href="cthulhu.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body{
+      background-color: #b6b4b4;
+      background-image: linear-gradient(
+    to bottom,
+    rgba(240, 240, 236, 0.5),
+    rgba(111, 111, 111, 0.5)
+  ), url("sombra.png");
+     /*background-repeat: no-repeat;*/
+     background-attachment: fixed;
+     background-size: cover;
+     color: #ffffff;
+    }
+    section .color{
+      position: absolute;
+      filter: blur(150px);
+    }
+    section .color:nth-child(1){
+      background: #b39a9a;
+      width: 60%;
+      height: 60%;
+      top: 15%;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+    }
+    section .color:nth-child(2){
+      background: #f28787;
+      width: 50%;
+      height: 50%;
+      bottom: 15%;
+      left: 10%;
+      border-radius: 78% 22% 28% 72% / 30% 30% 70% 70% ;
+    }
+    section .color:nth-child(3){
+      background: #89ff87;
+      width: 30%;
+      height: 30%;
+      bottom: 15%;
+      right: 0;
+      border-radius: 32% 68% 28% 72% / 52% 72% 28% 48%  ;
+    }
+    section{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 50px;
+    }
+    .container{
+      position: relative;
+      width: calc(100% - 100px);
+      min-height: calc(100vh - 200px);
+      min-height:300px;
+      background: rgb(255, 255, 255, 0.5);
+      box-shadow: 0 15px 35px rgb(255, 255, 255, 0.05);
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+    }
+    header{
+      position: absolute;
+      top: -40px;
+      right: 20px;
+      left: 20px;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    header .logo{
+      color: #8a2435;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 2em;
+    }
+    header ul{
+      display: flex;
+    }
+    header ul li{
+      list-style: none;
+      margin: 0 10px;
+    }
+    header ul li a{
+      text-decoration: none;
+      font-weight: 500;
+      color: #8a2435;
+      padding: 8px 15px;
+      border-radius: 25px;
+    }
+    header ul li a:hover,
+    header ul li a.activo{
+      background: #fff;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+    }
+    .contenido{
+      transform: translateX(-100px);
+      max-width: 700px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 40px;
+      padding-left: 110px;
+    }
+    .contenido h2{
+      font-size: 3em;
+      color: #8a2435;
+    }
+    .contenido p{
+      font-size: 1.2em;
+      color: #8a2435;
+    }
+    .contenido a{
+      display: inline-block;
+      padding: 15px 30px;
+      background: #fff;
+      color: #8a2435;
+      margin-top: 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 500;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    .img img{
+      max-width: 300px;
+      animation: animate 3.5s linear infinite;
+    }
+    @keyframes animate{
+      0%, 100%
+      {
+        transform: translateY(25px);
+      }
+      50%{
+        transform: translateY(60px);
+      }
+    }
+    .iconos{
+      position: absolute;
+      right: -25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .iconos li{
+      list-style: none;
+    }
+    .iconos li a{
+      position: relative;
+      width: 50px;
+      height: 50px;
+      margin: 15px 0;
+      display: inline-block;
+      border: 1px solid rgba(204, 18, 18, 0.4);
+      border-right: 1px solid rgba(204, 18, 18, 0.4);
+      border-bottom: 1px solid rgba(2204, 18, 18, 0.4);
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: rgb(199, 13, 13);
+      border-radius: 10px;
+      text-decoration: none;
+      backdrop-filter: blur(2px);
+      transition: 0.5s;
+      overflow: hidden;
+    }
+    .iconos li a:hover{
+      transform: translateY(-20px);
+    }
+    .iconos li a::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 100%;
+      background: rgba(252, 5, 5, 0.5);
+      transform: skewX(45deg) translateX(150px);
+      transition: 0.5s;
+    }
+    .iconos li a:hover::before{
+      transform: skewX(45deg) translateX(-150px);
+    }
+    .copy{
+      position: absolute;
+      bottom: 20px;
+      left: 50px;
+      color: #8a2435;
+    }
+  </style>
+</head>
+<body>  
+  <section>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="container">
+      <header>
+        <a href="#" class="logo">Logo</a>
+        <ul>
+          <li><a href="#" class="activo">Inicio</a></li>
+          <li><a href="categorias.html">Categorias</a></li>
+          <li><a href="login.html" >login</a></li>
+          <li><a href="#" >Contacto</a></li>
+        </ul>
+      </header>
+      <div class="contenido">
+        <h2>Espacio para el titulo</h2>
+        <P>Hojas de Estilo en Cascada (del inglés Cascading Style Sheets) o CSS es el lenguaje de estilos utilizado para describir la presentación de documentos HTML o XML (en-US) (incluyendo varios languages basados en XML como SVG, MathML o XHTML). CSS describe como debe ser renderizado el elemento estructurado en la pantalla, en papel, en el habla o en otros medios.</P>
+        <a href="#">Read More</a>
+      </div>
+      <div class="img">
+        <img src="dos.png" width="400" height="350" />
+      </div>
+      <ul class="iconos">
+        <li><a href="https://www.facebook.com/profile.php?id=100073307934823"><i class="fa fa-facebook" style=»color: red></i></a></li>
+        <li><a href="https://github.com/Oscar20001"><i class="fa fa-github"></i></a></li>
+        <li><a href="https://www.instagram.com/lifeatibm/"><i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>
